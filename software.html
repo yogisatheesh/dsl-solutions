@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSL Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Montserrat, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .logo img {
+            max-width: 150px;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo img:hover {
+            transform: scale(1.2);
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+            position: relative;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .navbar ul li:hover {
+            transform: scale(1.1);
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #0B3E21;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+        .navbar ul li a:hover {
+            color: #FECD0A;
+        }
+        .quote-button {
+            background-color: #0B3E21;
+            color: #FECD0A;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .quote-button:hover {
+            background-color: #06461D;
+            transform: scale(1.05);
+        }
+        .banner {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .banner-container {
+            display: flex;
+            width: 200%;
+            animation: scrollBanner 20s linear infinite;
+        }
+        .banner-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            flex-shrink: 0;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .banner-item img {
+            width: 50%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        .banner-item img:hover {
+            transform: scale(1.05);
+        }
+        .banner-item .text-content {
+            width: 40%;
+            font-size: 20px;
+            color: #0B3E21;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .banner-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .banner-item img {
+                width: 90%;
+            }
+            .banner-item .text-content {
+                width: 90%;
+                font-size: 16px;
+            }
+        }
+        @keyframes scrollBanner {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        [data-aos] {
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        section h2 {
+            font-size: 36px;
+            color: #0B3E21;
+            margin-bottom: 20px;
+        }
+        section p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #444;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            width: 100px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card img {
+            width: 80px;
+height:auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+}
+.card1 img {
+            width: 250px;
+height:auto;
+            border-radius: 20px;
+            margin-bottom: 30px;
+
+        }
+
+.expertise-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 300px;
+  text-align: center;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.expertise-card:hover {
+  background-color: #fff8e6;
+  transform: translateY(-5px);
+}
+
+.expertise-card img {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.toggle-form-btn {
+  background: #ffc107;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.toggle-form-btn:hover {
+  transform: rotate(90deg);
+}.hidden-form {
+  display: none;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.hidden-form input,
+.hidden-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.hidden-form button[type="submit"] {
+  background: #036f54;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+
+        footer {
+	font-family: Montserrat, sans-serif;
+            text-align: leftcenter;
+            padding: 20px;
+            background: #0B3E21;
+            color: #FECD0A;
+            font-size: 14px;
+        }
+.footer-map.dotted-map-bg {
+    position: OVER;
+    width: 100%;
+    height: 300px;
+    background: url('E:/dsl_solutions/frontend/assets/footermap.png') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    border-radius: 0px;
+}
+
+.map-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: mapZoom 10s infinite ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.central-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #FECD0A;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #FECD0A;
+    z-index: 2;
+    animation: pulse 2s infinite;
+}
+
+@keyframes mapZoom {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.2;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.6);
+        opacity: 0.2;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(254, 205, 10, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 25px rgba(254, 205, 10, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(254, 205, 10, 0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" data-aos="fade-down">
+            <img src="E:/dsl_solutions/frontend/assets/DSL logo_Final-01.png" alt="DSL Solutions Logo">
+        </div>
+        <ul>
+            <li data-aos="fade-down" data-aos-delay="100"><a href="E:\dsl_solutions\frontend\index.html">Home</a></li>
+            <li data-aos="fade-down" data-aos-delay="200"><a href="#Our Services">Our Services</a></li>
+            <li data-aos="fade-down" data-aos-delay="300"><a href="#Our Process">Our Process</a></li>
+      <li data-aos="fade-down" data-aos-delay="400"><a href="E:\dsl_solutions\frontend\portfolio.html">Portfolio</a></li>
+
+            <li data-aos="fade-down" data-aos-delay="500"><a href="#clients">Clients</a></li>
+
+            <li data-aos="zoom-in" data-aos-delay="600"><button class="quote-button" onclick="getQuote()">Get a Quote</button></li>
+        </ul>
+    </nav>
+
+    <section class="loop-banner">
+  <div class="content-wrapper">
+
+    <div class="set active">
+      <div class="left-svg">
+        <img src="E:\dsl_solutions\frontend\assets\banner-slider3.svg" alt="Visual 1">
+      </div>
+      <div class="right-text">
+        <h1>Design</h1>
+        <p>We create stunning user experiences through innovation.</p>
+      </div>
+    </div>
+
+    <div class="set">
+      <div class="left-svg">
+        <img src="E:\dsl_solutions\frontend\assets\banner-slider3.svg" alt="Visual 2">
+      </div>
+      <div class="right-text">
+        <h1>Transform</h1>
+        <p>We help brands evolve digitally for the modern world.</p>
+      </div>
+    </div>
+
+    <div class="set">
+      <div class="left-svg">
+        <img src="E:\dsl_solutions\frontend\assets\banner-slider3.svg" alt="Visual 3">
+      </div>
+      <div class="right-text">
+        <h1>Accelerate</h1>
+        <p>We fuel growth with data-driven design strategies.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+    </div>
+</div>
+
+
+   <section id="Our Services" data-aos="fade-up">
+<h2>Our Services</h2>
+
+                   <div class="card-container">
+
+            <div class="card" data-aos="zoom-in"><img src="E:\dsl_solutions\frontend\assets\logo.png"><p>Logo Design</p></div>
+            <div class="card" data-aos="zoom-in"><img src="E:\dsl_solutions\frontend\assets\web.png"><p>Web Design</p></div>
+            <div class="card" data-aos="zoom-in"><img src="E:\dsl_solutions\frontend\assets\gra.png"><p>Graphic Design</p></div>
+<div class="card" data-aos="zoom-in"><img src="E:\dsl_solutions\frontend\assets\brand.png"><p>Branding</p></div>
+<div class="card" data-aos="zoom-in"><img src="E:\dsl_solutions\frontend\assets\ui.png"><p>UI/UX Design</p></div>
+<div class="card" data-aos="zoom-in"><img src="E:\dsl_solutions\frontend\assets\seo.png"><p>SEO</p></div>
+
+        </div>
+        </div>
+
+    </section>
+<section id="Our Process" data-aos="fade-up">
+    <h2>Our Process</h2>
+
+    <div class="process-wrapper">
+        <div class="center-logo">
+            <img src="assets/dslcenter.png" alt="DSL Logo">
+        </div>
+
+        <div class="orbit">
+            <div class="process-item build" data-aos="fade-right">
+                <img src="assets/build.png" alt="Build">
+                <h3>Build</h3>
+                <p>Connecting Your Business to Every Corner of the World with Speed and Reliability. Comprehensive Logistics Solutions Tailored for Your Needs.</p>
+            </div>
+
+            <div class="process-item maintain" data-aos="fade-up">
+                <img src="assets/maintain.png" alt="Maintain">
+                <h3>Maintain</h3>
+                <p>Connecting Your Business to Every Corner of the World with Speed and Reliability. Comprehensive Logistics Solutions Tailored for Your Needs.</p>
+            </div>
+
+            <div class="process-item run" data-aos="fade-left">
+                <img src="assets/run.png" alt="Run">
+                <h3>Run</h3>
+                <p>Connecting Your Business to Every Corner of the World with Speed and Reliability. Comprehensive Logistics Solutions Tailored for Your Needs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+#our-process {
+    text-align: center;
+    padding: 80px 20px;
+    background: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.process-wrapper {
+    position: relative;
+    width: 650px;
+    height: 650px;
+    margin: 50px auto 0;
+}
+
+.center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 25px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.center-logo img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+.orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: spin 60s linear infinite; /* slower and smoother */
+    z-index: 1;
+    transform-origin: center center;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.process-item {
+    position: absolute;
+    width: 260px;
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 25px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    transform: translate(-50%, -50%); /* Always centered */
+}
+
+.process-item img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.process-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.process-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Proper orbit positioning */
+.build {
+    top: 15%;
+    left: 50%;
+}
+
+.maintain {
+    top: 70%;
+    left: 20%;
+}
+
+.run {
+    top: 70%;
+    left: 80%;
+}
+
+/* Prevent cards from rotating themselves */
+.orbit .process-item {
+    animation: counterSpin 60s linear infinite;
+}
+
+@keyframes counterSpin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+</style>
+<!-- Expertise Section -->
+<section id="Expertise" class="hover-tint animate-section" data-aos="fade-up">
+  <h2 style="text-align:center; color: var(--optional);">We Expertise in..</h2>
+  <p style="text-align:center; max-width:700px; margin: 0 auto 2rem;"></p>
+  
+  <div class="card-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+    
+    <!-- Card Template -->
+    <div class="card expertise-card" data-aos="flip-left">
+      <img src="E:\dsl_solutions\frontend\assets\wedesign.png" alt="Web Design & Maintenance">
+      <h3>Web Design & Maintenance</h3>
+      <p>A well-designed and regularly maintained website is crucial for a strong online presence. Our Web Design & Maintenance services ensure your site remains visually appealing, functional, and up to date.Let us handle your website’s design and maintenance, so you can focus on growing your business!
+</p>
+      <button class="toggle-form-btn">+</button>
+      <form class="hidden-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Query" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <div class="card expertise-card" data-aos="flip-left">
+      <img src="E:\dsl_solutions\frontend\assets\graphicdesign.png" alt="Graphic Design & Digital Marketing">
+      <h3>Graphic Design & Digital Marketing</h3>
+      <p>A strong visual identity and a strategic digital presence are essential for business success. Our Graphic Design & Digital Marketing services help you stand out and connect with your audience effectively. Let us help you make a lasting impression and drive results!
+</p>
+      <button class="toggle-form-btn">+</button>
+      <form class="hidden-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Query" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <div class="card expertise-card" data-aos="flip-left">
+      <img src="E:\dsl_solutions\frontend\assets\uiux.png" alt="UI/UX App Devlopment">
+      <h3>UI/UX App Devlopment</h3>
+      <p>A seamless user experience and a well-designed app are key to engaging and retaining customers. Our UI/UX & App Development services focus on creating intuitive, user-friendly, and visually appealing digital solutions.Whether you're launching a new app or improving an existing one, we provide end-to-end solutions that drive engagement and growth.</p>
+      <button class="toggle-form-btn">+</button>
+      <form class="hidden-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Query" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<section id="pricing" data-aos="fade-up">
+    <h2>Pricing Plans</h2>
+    <p>Affordable and flexible pricing options tailored to suit businesses of all sizes. Contact us to get a custom quote.</p>
+    <div class="badge-container">
+        <div class="badge platinum" data-aos="zoom-in">
+            <h3>Platinum</h3>
+            <p>$999 - Best for enterprises</p>
+        </div>
+        <div class="badge gold" data-aos="zoom-in">
+            <h3>Gold</h3>
+            <p>$599 - Perfect for growing businesses</p>
+        </div>
+        <div class="badge silver" data-aos="zoom-in">
+            <h3>Silver</h3>
+            <p>$299 - Ideal for startups</p>
+        </div>
+    </div>
+</section>
+
+<style>
+#pricing {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.badge-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.badge {
+    position: relative;
+    padding: 30px 20px;
+    width: 220px;
+    background: #111;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 20px;
+    clip-path: polygon(50% 0%, 95% 20%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 5% 20%);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.badge::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(135deg, #eee, #aaa);
+    z-index: -1;
+    clip-path: polygon(50% 0%, 95% 20%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 5% 20%);
+}
+
+.platinum::before {
+    background: linear-gradient(135deg, #d9d9d9, #ffffff);
+}
+
+.gold::before {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+}
+
+.silver::before {
+    background: linear-gradient(135deg, #c0c0c0, #dcdcdc);
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+.badge h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.badge p {
+    font-size: 1rem;
+}
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float img {
+    width: 40px;
+    height: 40px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+</style>
+<a href="https://wa.me/yourwhatsappphonenumber" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat" width="50" height="50">
+</a>
+
+
+
+    <section id="content" data-aos="fade-up">
+        <h2>Web Content Management</h2>
+        <p>A robust Web Content Management system is key to a successful online presence. Our experts provide comprehensive WCM services to help you efficiently create, manage, and optimize digital content.
+
+</p>
+        <div class="card-container">
+            <div class="card1" data-aos="fade-right">
+                <img src="assets/s.png" alt="s">
+            </div>
+            <div class="card1" data-aos="fade-up">
+                <img src="assets/c.png" alt="c">
+
+            </div>
+ <div class="card1" data-aos="fade-left">
+                <img src="assets/m.png" alt="m">
+
+            </div>
+
+        </div>
+    </section>
+<section id="soft" data-aos="fade-right">
+    <div class="soft-content">
+        <div class="text-container">
+            <h2>Software Development</h2>
+            <p>
+                We ensure the utilization of top-quality, highly credible tools and technologies for software development. Our team combines creative ideas, innovative methods, and industry-best techniques to deliver solutions that meet your unique business needs.
+            </p>
+            <p>
+                Our Software Developers & Mobile App Developers are extensively experienced and proficient in designing and navigating complex mobile environments. With a focus on user-friendly interfaces and smooth navigation, we ensure that your mobile app stands out. By leveraging the best software engineering practices, we deliver highly effective and innovative mobile solutions that drive engagement and success.
+            </p>
+        </div>
+        <div class="image-container">
+            <img src="assets/sd.png" alt="Software Development" />
+        </div>
+    </div>
+</section>
+
+<style>
+#soft {
+    position: relative;
+    padding: 80px 20px;
+    background-color: #fff8e6; /* DSL color as background */
+    color: #333;
+    overflow: hidden;
+}
+
+.soft-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.text-container {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.text-container h2 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.text-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.image-container {
+    position: relative;
+    width: 45%;
+    height: auto;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px; /* Optional, if you want rounded edges */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Optional, for a subtle shadow */
+}
+
+@media (max-width: 768px) {
+    .soft-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .text-container {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    .image-container {
+        width: 100%;
+    }
+}
+</style>
+ <section id="happy" data-aos="fade-up">
+        <h2>Our Happy Client Says</h2>
+        <p>Proud to have partnered with numerous brands across industries, delivering exceptional solutions that drive success.</p>
+        <div class="card-container">
+            <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 1"><p>Client A</p></div>
+            <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 2"><p>Client B</p></div>
+            <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 3"><p>Client C</p></div>
+        </div>
+    </section>
+
+
+    <section id="clients" data-aos="fade-up">
+        <h2>Our Clients</h2>
+        <p>Proud to have partnered with numerous brands across industries, delivering exceptional solutions that drive success.</p>
+        <div class="card-container">
+            <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 1"><p>Client A</p></div>
+            <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 2"><p>Client B</p></div>
+            <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 3"><p>Client C</p></div>
+        </div>
+    </section>
+ <section id="partners" data-aos="fade-up">
+        <h2>Our Partners</h2>
+        <p>Proud to have partnered with numerous brands across industries, delivering exceptional solutions that drive success.</p>
+        <div class="card-container">
+            <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 1"><p>Client A</p></div>
+            <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 2"><p>Client B</p></div>
+            <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 3"><p>Client C</p></div>
+        </div>
+    </section>
+
+
+    <footer style="position: relative; overflow: hidden; background: #0B3E21; color: #FECD0A; padding: 40px 20px;">
+  <!-- Dotted map moved behind -->
+  <div class="footer-map dotted-map-bg" style="position: absolute; top: 2; left: 0; width: 80%; height: 80%; z-index: 0;">
+    <div class="map-overlay">
+      <div class="all-dot"></div>
+    </div>
+  </div>
+
+  <!-- Content stays above map -->
+  <div class="footer-container" style="position: relative; z-index: 1;">
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>16A, Jalan PUJ 1/18, Taman Puncak Jalil,<br>43300 Seri Kembangan, Selangor, Malaysia.</p>
+      <p>Email: <a href="mailto:enquiry@dahsampailah.com">enquiry@dahsampailah.com</a></p>
+      <p>Email: <a href="mailto:thieeben@dahsampailah.com">thieeben@dahsampailah.com</a></p>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Why Us</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Clients</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Supply Chain & Logistics</a></li>
+        <li><a href="#">Lubricants Dealer</a></li>
+        <li><a href="#">Digital Services</a></li>
+        <li><a href="#">Branding</a></li>
+        <li><a href="#">Food Manufacturing</a></li>
+        <li><a href="#">Workforce Services</a></li>
+        <li><a href="#">End to End Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom" style="position: relative; z-index: 1; text-align: center; margin-top: 20px;">
+    <p>© 2025 - DSL Solutions All Rights Reserved</p>
+  </div>
+</footer>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        function getQuote() {
+            document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+        }
+    </script>
+
+<div class="chatbot-icon">
+  <img src="chat-icon.svg" alt="Chat with us" />
+</div>
+<script>
+  document.querySelectorAll('.toggle-form-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const form = btn.nextElementSibling;
+      form.style.display = form.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+</script>
+
+
+</body>
+</html>

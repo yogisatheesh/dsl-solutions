@@ -1,0 +1,448 @@
+body {
+    font-family: Montserrat, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.logo img {
+    height: 70.73x;
+    width: 500px;
+    transition: transform 0.3s ease-in-out;
+}
+.logo img:hover {
+    transform: scale(1.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    background-color: white;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+    position: relative;
+    transition: transform 0.3s, background 0.3s;
+}
+.navbar ul li:hover {
+    transform: scale(1.1);
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #0B3E21;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+.navbar ul li a:hover {
+    color: #FECD0A;
+}
+
+.quote-button {
+    background-color: #0B3E21;
+    color: #FECD0A;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s, transform 0.3s;
+}
+.quote-button:hover {
+    background-color: #06461D;
+    transform: scale(1.05);
+}
+
+.loop-banner {
+  background: #ffc107;
+  color: #fff;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 80%;
+}
+
+.set {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.set.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.left-svg img {
+  width: 450px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.right-text {
+  max-width: 50%;
+  text-align: left;
+}
+
+.right-text h1 {
+  font-size: 3.5em;
+  margin: 0;
+}
+
+.right-text p {
+  font-size: 1.3em;
+  margin-top: 15px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+[data-aos] {
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+section h2 {
+    font-size: 36px;
+    color: #0B3E21;
+    margin-bottom: 20px;
+}
+section p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #444;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 300px;
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-10px);
+}
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.chatbot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.chatbot-icon:hover {
+  transform: scale(1.1);
+}
+
+.chatbot-icon img {
+  width: 30px;
+  height: 30px;
+}
+.banner {
+  position: relative;
+  height: 100vh;
+  background: url('assets/technological-futuristic-holograms-logistics-means-transport.jpg') center/cover no-repeat fixed;
+  overflow: hidden;
+}
+
+.banner-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 62, 33, 0.4); /* optional dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+}
+
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(15);
+    opacity: 0;
+  }
+}
+
+
+.service-card {
+  position: relative;
+  width: 800px;
+  height: 800px;
+  overflow: hidden;
+  margin: 20px auto;
+  border-radius: 20px;
+}
+
+.service-card .img-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-card .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 1.2s ease, opacity 1.2s ease;
+}
+
+.service-card:hover .img-wrapper img {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+/* Software card effect (Right to left) */
+.service-card.software .img-wrapper img {
+  transform: translateX(100%);
+}
+
+.service-card.software:hover .img-wrapper img {
+  transform: translateX(0%);
+}
+
+/* Button styles */
+.btn-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-wrapper a {
+  display: inline-block;
+  background-color: #ffc107;
+  color: #000;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateX(50%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.service-card:hover .btn-wrapper a {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+/* Software button animation (left side) */
+.service-card.software:hover .btn-wrapper a {
+  transform: translateX(0%);
+}
+
+.service-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card-label {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
+
+/* Footer Base */
+footer {
+ background: url("E:/dsl_solutions/frontend/assets/footermap.svg") no-repeat center;
+  background-size: contain;
+  background-color: #0B3E21;
+  position: relative;
+  padding: 60px 30px 30px;
+  color: #FECD0A;
+  overflow: hidden;
+  z-index: 1;    
+background-color: #0B3E21; /* dark green background */
+    color: #ffffff;
+    padding: 60px 20px 20px;
+    position: relative;
+    font-family: 'Times New Roman', serif;
+}
+
+/* Footer Container Layout */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Footer Section Titles */
+.footer-section h4 {
+    color: #ffc107;
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Decorative Line Under Title */
+.footer-section h4::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #ffc107;
+    margin-top: 8px;
+}
+
+/* Footer Paragraphs */
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0 0 12px;
+}
+
+/* Links List */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: #ffc107;
+    transform: translateX(4px);
+}
+
+/* Follow Us Icons (optional) */
+.footer-section.follow-us ul li a::before {
+    content: "• ";
+    color: #ffc107;
+    margin-right: 5px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 13px;
+    color: #ccc;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
+    }
+}
+/* ✨ Map Animation (zoom from center outward) */
+@keyframes zoomOutMap {
+  0% {
+    transform: translateX(-50%) scale(0.5);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(-50%) scale(0.5);
+    opacity: 0.1;
+  }
+}

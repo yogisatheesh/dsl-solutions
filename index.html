@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #fff8e6;
+      --secondary: #ffc107;
+      --optional: #036f54;
+      --button-stroke-light: #ffc107;
+      --button-stroke-dark: #d4a806;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background-color: var(--primary);
+      color: #222;
+      scroll-behavior: smooth;
+      line-height: 1.0;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      background: url("E:/dsl_solutions/frontend/assets/technological-futuristic-holograms-logistics-means-transport.jpg") center center / cover no-repeat fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 3rem; /* removed top/bottom padding */
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 221, 51, 0.15);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .left-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem; /* reduced gap */
+      align-items: flex-start;
+    }
+
+    .left-section h1 {
+      color: var(--secondary);
+      font-size: 4rem;
+      font-weight: 700;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      width: 300px;
+      text-align: center;
+      margin-bottom: 0.2rem; /* optional fine-tune */
+    }
+
+    .left-section p {
+      color: #fff;
+      font-weight: 300;
+      font-size: 1.6rem; /* slightly smaller */
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      width: 300px;
+      text-align: center;
+      margin-top: 0; /* optional override */
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .buttons button {
+      background: var(--secondary); /* Primary fill */
+      color: #222; /* Text in white */
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: 0.3s;
+      width: 250px;
+      height: auto;
+    }
+
+    .buttons button:hover {
+      box-shadow: 0 0 15px var(--secondary);
+      cursor: pointer;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      z-index: 3;
+    }
+
+    .top-bar img {
+      width: 200px; /* Increased logo size */
+      height: auto;
+    }
+
+    .top-bar span {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--optional);
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #fff200, 0 0 10px #ffea00;
+      }
+      to {
+        text-shadow: 0 0 10px #fff200, 0 0 20px #ffea00;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <img src="E:/dsl_solutions/frontend/assets/DSL logo_Final-01.png" alt="DSL Logo">
+    <span>Explore our Services</span>
+  </div>
+
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <div class="left-section">
+        <h1>DSL</h1>
+        <p>Dream Set Launch</p>
+      </div>
+      <div class="buttons">
+        <button onclick="window.location.href='logistics.html'">Logistics and Supply Chain Management</button>
+        <button onclick="window.location.href='software.html'">Software Solutions and Business Operations</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
