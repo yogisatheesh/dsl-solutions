@@ -336,6 +336,95 @@ height:auto;
     }
 }
 
+.map-section {
+      background: url('assets/footermap.png') center center / cover no-repeat;
+      padding: 100px 20px;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    .map-section h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #FECD0A;
+    }
+    .map-overlay-content {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+    .map-overlay-content p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .map-marker {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      z-index: 2;
+      cursor: pointer;
+    }
+    .map-marker::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 5px;
+      white-space: nowrap;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .map-marker:hover::after {
+      opacity: 1;
+    }
+    .food {
+      background-color: #FECD0A; /* our brand tint */
+      box-shadow: 0 0 10px #FECD0A;
+    }
+    .petro {
+      background-color: #036f54; /* green tint */
+      box-shadow: 0 0 10px #036f54;
+    }
+    /* Example positions (adjusted visually to approximate locations) */
+    .malaysia { top: 60%; left: 70%; }
+.singapore { top: 65%; left: 72%; }
+.australia { top: 80%; left: 75%; }
+.china { top: 45%; left: 70%; }
+.bangladesh { top: 55%; left: 65%; }
+.india { top: 60%; left: 60%; }
+.philipines { top: 60%; left: 75%; }
+
+
+    .map-legend {
+      margin-top: 50px;
+      text-align: center;
+    }
+    .map-legend span {
+      display: inline-block;
+      margin: 0 20px;
+      font-size: 16px;
+      color: #fff;
+    }
+    .legend-dot {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .legend-food { background-color: #FECD0A; }
+    .legend-petro { background-color: #036f54; }
 
     </style>
 </head>
@@ -497,6 +586,31 @@ height:auto;
             <div class="card" data-aos="zoom-in"><img src="https://via.placeholder.com/150" alt="Client 3"><p>Client C</p></div>
         </div>
     </section>
+
+<section class="map-section" data-aos="fade-up">
+ <h2>Global Reach for Industry Solutions</h2>
+  <!-- Food Manufacturing Locations -->
+  <div class="map-marker food malaysia" data-tooltip="Malaysia - Food Manufacturing" style="top: 58%; left: 76%;"></div>
+  <div class="map-marker food singapore" data-tooltip="Singapore - Food Manufacturing" style="top: 61%; left: 77%;"></div>
+  <div class="map-marker food australia" data-tooltip="Australia - Food Manufacturing" style="top: 80%; left: 88%;"></div>
+
+  <!-- Petro Automotive Chemicals Locations -->
+  <div class="map-marker petro china" data-tooltip="China - Petro Chemicals" style="top: 47%; left: 70%;"></div>
+  <div class="map-marker petro bangladesh" data-tooltip="Bangladesh - Petro Chemicals" style="top: 55%; left: 67%;"></div>
+  <div class="map-marker petro india" data-tooltip="India - Petro Chemicals" style="top: 60%; left: 63%;"></div>
+  <div class="map-marker petro malaysia" data-tooltip="Malaysia - Petro Chemicals" style="top: 59%; left: 76%;"></div>
+  <div class="map-marker petro philipines" data-tooltip="Philippines - Petro Chemicals" style="top: 60%; left: 80%;"></div>
+
+  <!-- Legend -->
+  <div class="map-legend" style="margin-top: 80px; text-align: center;">
+    <span style="display: inline-block; margin: 0 20px; font-size: 16px; color: #fff;">
+      <span class="legend-dot" style="background-color: #FECD0A;"></span> Food Manufacturing
+    </span>
+    <span style="display: inline-block; margin: 0 20px; font-size: 16px; color: #fff;">
+      <span class="legend-dot" style="background-color: #036f54;"></span> Petro Automotive Chemicals
+    </span>
+  </div>
+</section>
 
 
 
