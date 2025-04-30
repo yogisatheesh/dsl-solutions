@@ -889,18 +889,24 @@ height:auto;
         }
     </script>
 
-<div class="chatbot-icon">
-  <img src="chat-icon.svg" alt="Chat with us" />
-</div>
-<script>
-  document.querySelectorAll('.toggle-form-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const form = btn.nextElementSibling;
-      form.style.display = form.style.display === 'block' ? 'none' : 'block';
-    });
-  });
-</script>
 
+<script>
+  function getQuote() {
+    const quotes = [
+      "Dream big. Start small. Act now.",
+      "Success doesn’t come to you — you go to it.",
+      "The best way to predict the future is to create it.",
+      "Your limitation—it’s only your imagination.",
+      "Push yourself, because no one else is going to do it for you.",
+      "Don’t watch the clock; do what it does. Keep going.",
+      "Great things never come from comfort zones."
+    ];
+
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+    alert("✨ Motivation for You:\n\n" + randomQuote);
+  }
+</script>
 
 </body>
 </html>
